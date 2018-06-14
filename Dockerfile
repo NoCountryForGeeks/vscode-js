@@ -53,13 +53,7 @@ RUN chown -R user:user $HOME/.config
 RUN mkdir .vscode
 RUN chown -R user:user $HOME/.vscode
 
-RUN npm install -g postcss@5.0.0
-RUN npm install -g postcss-syntax@0.10.0
-RUN npm install -g eslint
-RUN npm install -g stylelint
-RUN npm install -g prettier
-RUN npm install -g prettier-eslint
-RUN npm install -g prettier-stylelint
+RUN npm install -g postcss@5.0.0 postcss-syntax@0.10.0 eslint stylelint prettier prettier-eslint prettier-stylelint
 
 RUN su user -p -c "code --install-extension formulahendry.auto-close-tag"
 RUN su user -p -c "code --install-extension NuclleaR.vscode-extension-auto-import"
@@ -84,7 +78,6 @@ RUN su user -p -c "code --install-extension gegeke.node-modules-navigation"
 RUN su user -p -c "code --install-extension eg2.vscode-npm-script"
 RUN su user -p -c "code --install-extension christian-kohler.npm-intellisense"
 RUN su user -p -c "code --install-extension esbenp.prettier-vscode"
-RUN su user -p -c "code --install-extension WallabyJs.quokka-vscode"
 RUN su user -p -c "code --install-extension 2gua.rainbow-brackets"
 RUN su user -p -c "code --install-extension vsmobile.vscode-react-native"
 RUN su user -p -c "code --install-extension shinnn.stylelint"
@@ -98,8 +91,11 @@ RUN su user -p -c "code --install-extension clinyong.vscode-css-modules"
 RUN su user -p -c "code --install-extension bierner.markdown-preview-github-styles"
 RUN su user -p -c "code --install-extension minhthai.vscode-todo-parser"
 RUN su user -p -c "code --install-extension PeterJausovec.vscode-docker"
+RUN su user -p -c "code --install-extension zhuangtongfa.Material-theme"
 
 COPY start.sh /usr/local/bin/start.sh
 COPY settings.json $HOME/.config/Code/User/settings.json
+
+RUN PATH=$PATH:/usr/share/code/
 
 CMD [ "start.sh" ]
