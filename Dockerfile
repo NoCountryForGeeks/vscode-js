@@ -98,4 +98,6 @@ COPY settings.json $HOME/.config/Code/User/settings.json
 
 RUN PATH=$PATH:/usr/share/code/
 
+WORKDIR $HOME/code
+
 CMD [ "start.sh" ]
