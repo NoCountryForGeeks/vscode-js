@@ -14,7 +14,7 @@ RUN curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
 RUN echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
 
 RUN useradd --create-home --home-dir $HOME user \
-    && chown -R user:user $HOME
+	&& chown -R user:user $HOME
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
@@ -86,8 +86,6 @@ RUN su user -p -c "code --install-extension christian-kohler.npm-intellisense"
 RUN su user -p -c "code --install-extension esbenp.prettier-vscode"
 RUN su user -p -c "code --install-extension WallabyJs.quokka-vscode"
 RUN su user -p -c "code --install-extension 2gua.rainbow-brackets"
-RUN su user -p -c "code --install-extension vsmobile.vscode-react-native"
-RUN su user -p -c "code --install-extension shinnn.stylelint"
 RUN su user -p -c "code --install-extension cssho.vscode-svgviewer"
 RUN su user -p -c "code --install-extension wayou.vscode-todo-highlight"
 RUN su user -p -c "code --install-extension jpoissonnier.vscode-styled-components"
@@ -97,7 +95,6 @@ RUN su user -p -c "code --install-extension hdg.live-html-previewer"
 RUN su user -p -c "code --install-extension clinyong.vscode-css-modules"
 RUN su user -p -c "code --install-extension bierner.markdown-preview-github-styles"
 RUN su user -p -c "code --install-extension minhthai.vscode-todo-parser"
-RUN su user -p -c "code --install-extension PeterJausovec.vscode-docker"
 
 COPY start.sh /usr/local/bin/start.sh
 COPY settings.json $HOME/.config/Code/User/settings.json
